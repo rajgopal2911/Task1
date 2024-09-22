@@ -1,7 +1,7 @@
 package com.example.task2.services;
 
 
-import com.example.task2.dao.ItemDao;
+import com.example.task2.repository.ItemDao;
 import com.example.task2.entities.Item;
 import com.example.task2.models.requests.UpdateItem;
 import com.example.task2.models.requests.UpdateQuantity;

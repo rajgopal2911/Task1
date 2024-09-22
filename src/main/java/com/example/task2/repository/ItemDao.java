@@ -1,14 +1,10 @@
-package com.example.task2.dao;
+package com.example.task2.repository;
 
 
-import com.example.task2.entities.Item;
 import com.example.task2.models.requests.UpdateItem;
 import com.example.task2.models.requests.UpdateQuantity;
-import com.example.task2.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -20,14 +16,14 @@ import java.util.List;
 public class ItemDao {
 
     @Autowired
-    private ItemRepository itemRepository;
+    private Item itemRepository;
 
     /**
      * Save the item
      * @param item
      * @return
      */
-    public Item saveItem(Item item){
+    public com.example.task2.entities.Item saveItem(com.example.task2.entities.Item item){
         return itemRepository.save(item);
     }
 
@@ -53,7 +49,7 @@ public class ItemDao {
      * returns the list of all items
      * @return
      */
-    public List<Item> getAllItems(){
+    public List<com.example.task2.entities.Item> getAllItems(){
 
         return itemRepository.findAll();
         // return itemRepository.findAll();
@@ -66,7 +62,7 @@ public class ItemDao {
      * @return
      */
     public ResponseEntity<String> updateItem(String id, UpdateItem updateItem){
-        Item existingItem=itemRepository.findById(id).orElse(null);
+        com.example.task2.entities.Item existingItem=itemRepository.findById(id).orElse(null);
         if(existingItem == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("itemem not present");
         }
@@ -92,7 +88,7 @@ public class ItemDao {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Item Not found");
         }
 
-        Item existingItem=itemRepository.findById(id).get();
+        com.example.task2.entities.Item existingItem=itemRepository.findById(id).get();
         int existingQuantity=existingItem.getQuantity();
 
         existingItem.setQuantity(UpdateQuantity.getQuantity()+existingQuantity);
