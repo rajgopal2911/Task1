@@ -6,12 +6,18 @@ import com.example.task2.entities.Item;
 import com.example.task2.models.requests.UpdateItem;
 import com.example.task2.models.requests.UpdateQuantity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.springframework.cache.annotation.Cacheable;
+
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Validated
@@ -87,5 +93,15 @@ public class ItemServicesImpl implements ItemServices {
         }
         return itemDao.updateQuatity(id,UpdateQuantity);
     }
+
+    @Override
+    @Cacheable(value = "items", key = "#id")
+    public Item getItemById(String id){
+        Optional<Item> item=itemDao.getItemById(id);
+        System.out.println(item);
+        return item.orElse(null);
+    }
+
+
 
 }

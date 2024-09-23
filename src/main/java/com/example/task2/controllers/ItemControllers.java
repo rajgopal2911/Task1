@@ -100,6 +100,21 @@ public class ItemControllers {
         return new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getItemById(@PathVariable String id){
+        ApiResponse apiResponse=new ApiResponse();
+         Item item=itemServices.getItemById(id);
+         if(item==null){
+             apiResponse.setSuccess(false);
+             return new ResponseEntity<>(apiResponse,HttpStatus.OK);
+         }
+         apiResponse.setData(item);
+
+        return new ResponseEntity<>(apiResponse,HttpStatus.OK);
+
+    }
+
+
 
 
 }

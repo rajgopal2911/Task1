@@ -46,4 +46,6 @@ public interface ItemServices {
      * @return
      */
     ResponseEntity<Object> updateQuantity(String id, UpdateQuantity updateQuantity);
+
+    Item getItemById(String id);
 }

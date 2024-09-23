@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @Slf4j
@@ -95,6 +96,12 @@ public class ItemDao {
 
         itemRepository.save(existingItem);
         return ResponseEntity.ok(existingItem);
+
+    }
+
+    public Optional<com.example.task2.entities.Item> getItemById(String id){
+        Optional<com.example.task2.entities.Item> item= itemRepository.findById(id);
+        return item;
 
     }
 }

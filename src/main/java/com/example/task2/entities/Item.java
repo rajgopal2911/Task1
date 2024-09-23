@@ -4,8 +4,11 @@ package com.example.task2.entities;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
@@ -14,6 +17,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * this class is entity to store in database
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "Items")
 public class Item {
 
