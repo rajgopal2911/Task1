@@ -1,4 +1,4 @@
-package com.example.task2.itemServiceTests;
+package com.example.task2.unitTests;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-public class addItem {
+public class ServiceAddItemTest {
 
   private MockMvc mockMvc;
 

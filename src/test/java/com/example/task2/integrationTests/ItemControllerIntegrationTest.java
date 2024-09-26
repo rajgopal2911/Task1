@@ -1,8 +1,6 @@
-package com.example.task2.IntegrationTests;
-import com.example.task2.feature_items.entities.mongo.Item;
+package com.example.task2.integrationTests;
 import com.example.task2.feature_items.models.requests.CreateItemRequest;
 import com.example.task2.feature_items.services.ItemServiceImpl;
-import com.example.task2.feature_items.controllers.ItemControllers; // Import your controller
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

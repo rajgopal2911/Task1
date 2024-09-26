@@ -1,4 +1,4 @@
-package com.example.task2.IntegrationTests;
+package com.example.task2.integrationTests;
 
 import com.example.task2.feature_items.entities.mongo.Item;
 import com.example.task2.feature_items.models.requests.CreateItemRequest;
