@@ -27,17 +27,6 @@ public class ItemDao {
     this.redisService = redisService;
   }
 
-  /*
-  TODO:
-  1. Fix names-done
-  2. Return the db object itself. Do not return response object-done
-  3. read about constructor injection vs autowired injection
-      -- Inject via constructor
-  4. GetAllItems must be paginated
-  5. Return function calls directly if it is single line
-  6. Add comments
-   */
-
   /**
    * Save the item
    *

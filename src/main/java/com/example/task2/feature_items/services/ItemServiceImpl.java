@@ -22,15 +22,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemServiceImpl implements ItemServices {
 
-  /*
-  TODO:
-  1. Implement Constructor injection-done
-  2. Return Custom Response Object, do not return response entity.->done
-  3. Throw Exceptions when necessary.->done
-  4. Create a paginated response model->done
-  5. use message format instead of regular string-done
-  6. Create Class ErrorMessage and ErrorCode. Borrow error message from this constants class.
-   */
 
   private final ItemDao itemDao;
   private final ResourceLocking resourceLocking;

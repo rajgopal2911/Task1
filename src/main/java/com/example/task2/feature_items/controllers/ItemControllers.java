@@ -12,12 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * TODO: 1. Figure out spotless->done 1. Must have only success response entity.-done 2. Do not have
- * any logic in Controller, handover params or request body to service layer directly.-done 3. Use
- * request param instead of path variables.-done 4. Always return ResponseEntity<ApiResponse> --
- * done
- */
+
 @RestController
 @RequestMapping("/items")
 @Validated

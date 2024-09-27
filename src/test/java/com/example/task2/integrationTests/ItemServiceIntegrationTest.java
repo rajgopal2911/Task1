@@ -1,8 +1,8 @@
 package com.example.task2.integrationTests;
-
 import com.example.task2.feature_items.entities.mongo.Item;
 import com.example.task2.feature_items.models.requests.CreateItemRequest;
 import com.example.task2.feature_items.services.ItemServiceImpl;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testcontainers.containers.MongoDBContainer;
-
 import static com.mongodb.assertions.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -34,7 +33,7 @@ public class ItemServiceIntegrationTest {
 //          .withExposedPorts(27018);
 
   @DynamicPropertySource
-  static void mongoProperties(DynamicPropertyRegistry registry) {
+  static void mongoProperties(@NotNull DynamicPropertyRegistry registry) {
     registry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
 
   }
@@ -43,11 +42,6 @@ public class ItemServiceIntegrationTest {
   static  void beforeAll(){
     mongoDBContainer.start();
   }
-
-//  @AfterAll
-//  static void afterAll(){
-//    mongoDBContainer.stop();
-//  }
 
   @Autowired
   public ItemServiceIntegrationTest(ItemServiceImpl itemService){
